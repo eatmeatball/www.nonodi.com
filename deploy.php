@@ -7,7 +7,7 @@ require 'recipe/common.php';
 set('application', 'www.nonodi.com');
 
 // Project repository
-set('repository', '');
+set('repository', 'https://github.com/hzj991/www.nonodi.com.git');
 
 // [Optional] Allocate tty for git clone. Default value is false.
 set('git_tty', true); 
@@ -18,13 +18,17 @@ set('shared_dirs', []);
 
 // Writable dirs by web server 
 set('writable_dirs', []);
+set('migrations_config', '');
+set('allow_anonymous_stats', false);
 
 
 // Hosts
 
-host('project.com')
-    ->set('deploy_path', '~/{{application}}');    
-    
+host('111.231.202.11')
+    ->stage('prod')
+    // ->set('branch', 'production')
+    ->user('www')
+    ->set('deploy_path', '/home/www/{{application}}');    
 
 // Tasks
 
@@ -37,7 +41,6 @@ task('deploy', [
     'deploy:update_code',
     'deploy:shared',
     'deploy:writable',
-    'deploy:vendors',
     'deploy:clear_paths',
     'deploy:symlink',
     'deploy:unlock',
