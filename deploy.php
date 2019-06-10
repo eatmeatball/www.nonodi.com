@@ -30,6 +30,9 @@ host('111.231.202.11')
     ->set('deploy_path', '/home/www/{{application}}');    
 
 // Tasks
+task('staticBuild',function(){
+    run('/usr/local/xzsoft/php71/bin/php /home/www/lodge-unit-book-app/current/bin/console.php xiaozhu:migrations');
+});
 
 desc('Deploy your project');
 task('deploy', [
