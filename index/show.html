@@ -9,6 +9,7 @@
 
 <body>
     <div id="Bodybuilding">
+        <button v-on:click="updateData()">更新</button>
         <div v-for="item in itemListAndDay">
             <div>
                 <span>{{item.fitnessDate}}</span>
@@ -91,7 +92,7 @@
 
         },
         methods: {
-            update: function() {
+            updateData: function() {
                 axios.get(this.baseUri + '/getFitnessStatistics', {
                         params: {
                             todayItemList: this.itemList,

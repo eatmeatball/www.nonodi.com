@@ -9,13 +9,12 @@
 
 <body>
     <div id="Bodybuilding">
-
-        <button v-on:click="submitComment()">更新</button>
         <div v-for="item in itemList">
             <div>
                 <span>{{item.name}}</span></span><input v-model="item.number">
             </div>
         </div>
+        <button v-on:click="submitComment()">提交</button>
     </div>
 </body>
 <script src="https://vuejs.org/js/vue.js"></script>
