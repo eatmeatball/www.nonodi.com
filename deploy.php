@@ -10,7 +10,7 @@ set('application', 'www.nonodi.com');
 set('repository', 'https://github.com/hzj991/www.nonodi.com.git');
 
 // [Optional] Allocate tty for git clone. Default value is false.
-set('git_tty', true); 
+set('git_tty', false); 
 
 // Shared files/dirs between deploys 
 set('shared_files', []);

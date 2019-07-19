@@ -27,3 +27,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+scp -r dist www@111.231.202.11:~/www.nonodi.com.tmp 
+
