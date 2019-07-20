@@ -11,12 +11,12 @@
     <div id="Bodybuilding">
         <button v-on:click="updateData()">更新</button>
         <div v-for="item in itemListAndDay">
-            <div>
-                <span>{{item.fitnessDate}}</span>
-                <div v-for="show in item.itemList" v-if="show.number">
-                    <p>{{show.name}}:{{show.number}}</p>
-                </div>
-            </div>
+            <span>{{item.fitnessDate}}</span>
+            <ol>
+                <li v-for="show in item.itemList" v-if="show.number">
+                    {{show.name}}:{{show.number}}
+                </li>
+            </ol>
         </div>
     </div>
 </body>
