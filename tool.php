@@ -1,13 +1,19 @@
 <?php
 
-$i = 20;
+$i = 1;
 while($i--){
     echo 
-    '<div class="love">
-    <div class="love_horizontal">
-        <div class="love_vertical">
-            <div class="love_word">。</div>
-        </div>
-    </div>
-</div>';
+    '0% {
+        text-shadow: 0 0 30px #fff
+    }';
+    for($num=1;$num<100;$num++)
+    echo '
+
+    '.$num.'% {
+        text-shadow: 0 0 30px rgb('.mt_rand(0,255).', '.mt_rand(0,255).', '.mt_rand(0,255).')
+    }';
+echo '
+    100% {
+        text-shadow: 0 0 30px #fff
+    }';
 }
