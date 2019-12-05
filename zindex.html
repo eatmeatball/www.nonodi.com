@@ -162,24 +162,10 @@
             <div class="middle">
                 <div class="modular">
                     <div class="mainLeft">
-                        <div class="mainBlock">mainBlock</div>
-                        <div class="mainBlock">mainBlock</div>
-                        <div class="mainBlock">mainBlock</div>
-                        <div class="mainBlock">mainBlock</div>
-                        <div class="mainBlock">mainBlock</div>
-                        <div class="mainBlock">mainBlock</div>
-                        <div class="mainBlock">mainBlock</div>
-                        <div class="mainBlock">mainBlock</div>
-                        <div class="mainBlock">mainBlock</div>
-                        <div class="mainBlock">mainBlock</div>
-                        <div class="mainBlock">mainBlock</div>
-                        <div class="mainBlock">mainBlock</div>
-                        <div class="mainBlock">mainBlock</div>
-                        <div class="mainBlock">mainBlock</div>
-                        <div class="mainBlock">mainBlock</div>
-                        <div class="mainBlock">mainBlock</div>
-                        <div class="mainBlock">mainBlock</div>
-                        <div class="mainBlock">mainBlock</div>
+                        <div class="mainBlock" v-for="newItem in newList">
+                            {{newItem.text}}
+                            <!-- <img v-bind:src="newItem.imgSrc"> -->
+                        </div>
                     </div>
                     <div class="mainRight">
                         <div class="mainLine">mainLine</div>
@@ -285,6 +271,31 @@
             <div class="clear"></div>
         </div>
     </div>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                newList: [
+                    { text: '学习 JavaScript', srcImg: 'images/windows.png' },
+                    { text: '学习 Vue', srcImg: 'images/windows.png' },
+                ]
+            }
+        });
+        var baseUri = "http://127.0.0.1:8000";
+        axios.get(this.baseUri + '/test/list', {
+            params: {
+                uuid: 'this.submit.uuid',
+                identity: 'identity'
+            }
+        }).then(response => (
+            console.log(response),
+            console.log(response.data.value),
+            this.info = response.data.value,
+            app.newList = response.data.value
+        )).catch(error => console.log(error))
+    </script>
 </body>
 
 </html>
