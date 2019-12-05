@@ -9,14 +9,14 @@
         * {
             text-decoration: none;
         }
-        
+
         html {
             width: 100%;
             height: 100%;
             overflow: hidden;
             font-style: sans-serif;
         }
-        
+
         body {
             width: 100%;
             height: 100%;
@@ -24,7 +24,30 @@
             margin: 0;
             background-color: #4A374A;
         }
-        
+
+
+        h1 {
+            font-size: 9em;
+            margin: 0.67em -1em;
+        }
+
+
+        a:link {
+            color: #fff;
+        }
+
+        a:visited {
+            color: #fff;
+        }
+
+        a:hover {
+            color: rgba(148, 198, 255, 0.938);
+        }
+
+        a:active {
+            color: rgba(0, 119, 255, 0.938);
+        }
+
         #bigP {
             position: absolute;
             top: 50%;
@@ -32,24 +55,34 @@
             margin: -150px 0 0 -150px;
             width: 300px;
         }
-        
+
         #bigP h1 {
             color: #fff;
             text-shadow: 0 0 10px;
             letter-spacing: 1px;
             text-align: center;
+            animation:ts 5s infinite;
         }
-        
-        h1 {
-            font-size: 9em;
-            margin: 0.67em -1em;
+
+        @keyframes ts {
+            0% {
+                text-shadow: 0 0 20px #fff
+            }
+
+            50% {
+                text-shadow: 0 0 20px rgb(53, 160, 179)
+            }
+
+            100% {
+                text-shadow: 0 0 20px #fff
+            }
         }
-        
+
         .main {
             width: 100%;
             height: 90%;
         }
-        
+
         .footer {
             text-align: center;
             clear: both;
@@ -63,38 +96,26 @@
             bottom: 100px;
             color: #fff
         }
-        
-        a:link {
-            color: #fff;
-        }
-        
-        a:visited {
-            color: #fff;
-        }
-        
-        a:hover {
-            color: rgba(148, 198, 255, 0.938);
-        }
-        
-        a:active {
-            color: rgba(0, 119, 255, 0.938);
-        }
     </style>
 </head>
 
 <body>
-    <div class='header'></div>
+
     <div class='main'>
         <div id="bigP">
             <h1>E=mv²/2</h1>
+
         </div>
+        <div class="stagger-visualizer"></div>
     </div>
     <div class='footer'>
         <div id="drink">
-            drink
+                Prime number 2
         </div>
         <a href="http://www.beian.miit.gov.cn" target="_blank">京ICP备17063724号-1</a>
     </div>
+
+
 </body>
 
 </html>
