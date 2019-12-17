@@ -13,8 +13,14 @@
         padding: 0;
     }
 
+    html {
+        width: 100%;
+    }
+
+
     body {
         font: normal 25px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+        width: 100%;
         color: #4f6b72;
         background: #E6EAE9;
     }
@@ -24,10 +30,15 @@
         color: #c75f3e;
     }
 
+    table {
+        margin: auto;
+        width: 100%
+    }
+
     #mytable {
         width: 100%;
+        margin: auto;
         padding: 0;
-        margin: 0;
     }
 
     caption {
@@ -96,25 +107,33 @@
 <body>
     <div id="app">
         <p>
-            当前:显示隐藏{{config.hideChinese}}|随机默认{{config.isRand}}|第{{config.page}}页
-        </p>
-        {{config.page}}{{config.message}}
-        <button v-on:click="MChineseBgHover()">
+            当前:
             <span v-if="config.hideChinese">隐藏汉语</span>
             <span v-else>显示汉语</span>
+            <span v-if="config.isRand">乱序单词顺序</span>
+            <span v-else>默认单词顺序</span>
+            第{{config.page}}页
+        </p>
+        <button v-on:click="MChineseBgHover()">
+            <span v-if="config.hideChinese">显示汉语</span>
+            <span v-else>隐藏汉语</span>
         </button>
         <br>
         <button v-on:click="randWords()">
-            <span v-if="config.isRand">乱序单词顺序</span>
-            <span v-else>默认单词顺序</span>
+            <span v-if="config.isRand">默认单词顺序</span>
+            <span v-else>乱序单词顺序</span>
         </button>
         <button v-on:click="MRandWords()">
             乱序
         </button>
         <br>
-        <div v-for="EnglishList in EnglishListItem">
-            <button v-on:click="checkPage(EnglishList)">English Word No.{{EnglishList}}</button>
-        </div>
+
+        <a v-for="EnglishList in EnglishListItem" v-on:click="checkPage(EnglishList)" style="cursor:pointer;">
+            <span v-if="config.page!=EnglishList">[{{EnglishList}}]</span>
+            <span v-else>{{EnglishList}}</span>
+
+        </a>
+
         <table class=" mytable" cellspacing="0" summary="you need study ">
             <caption> </caption>
             <tr>
@@ -123,10 +142,10 @@
                 <th scope="col" width="30%" abbr="Dual 1.8">number</th>
             </tr>
 
-            <tr scope="row" abbr="Model" class="spec" v-for="englishItem in EnglishData">
-                <th scope="row" abbr="Model" class="spec">{{englishItem.English}}</th>
-                <td v-bind:class="ChineseTdClass">{{englishItem.Chinese}}</td>
-                <td>ssss</td>
+            <tr scope="row" abbr="Model" class="spec" v-for="(englishItem,index) in EnglishData">
+                <th width="30%" scope="row" abbr="Model" class="spec">{{englishItem.English}}</th>
+                <td width="30%" v-bind:class="ChineseTdClass">{{englishItem.Chinese}}</td>
+                <td width="30%">{{index+1}}</td>
             </tr>
         </table>
     </div>
@@ -202,7 +221,7 @@
                         this.GetWordsData(num, this.config.isRand)
                     },
                     GetWordsData(num, useRand) {
-                        axios.get('/source/english' + num + '.json').then(function (response) {
+                        axios.get('source/english' + num + '.json').then(function (response) {
                             arr = response.data;
                             if (useRand) {
                                 arr = MUnknow(arr);
