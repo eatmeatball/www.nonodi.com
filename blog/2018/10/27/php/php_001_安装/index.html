@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="ubuntu ubuntu 中软件的卸载方法： 1.apt方式安装：(相应的文件夹有相关的软件，先进入到软件的文件夹)  普通安装： sudo apt-get install 软件名  修复安装： sudo apt-get -f install 软件名  重新安装： sudo apt-get –rreinstall install 软件名　(一般是 .deb　格式)2.dpkg 方式：  1.普通">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP[001]:INSTALL">
+<meta property="og:url" content="https:&#x2F;&#x2F;hzjoyous.github.io&#x2F;2018&#x2F;10&#x2F;27&#x2F;php&#x2F;php_001_%E5%AE%89%E8%A3%85&#x2F;index.html">
+<meta property="og:site_name" content="biubiubiu~">
+<meta property="og:description" content="ubuntu ubuntu 中软件的卸载方法： 1.apt方式安装：(相应的文件夹有相关的软件，先进入到软件的文件夹)  普通安装： sudo apt-get install 软件名  修复安装： sudo apt-get -f install 软件名  重新安装： sudo apt-get –rreinstall install 软件名　(一般是 .deb　格式)2.dpkg 方式：  1.普通">
+<meta property="article:published_time" content="2018-10-27T01:48:33.000Z">
+<meta property="article:modified_time" content="2019-05-06T12:04:41.482Z">
+<meta property="article:author" content="hzjoyous">
+<meta property="article:tag" content="php">
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+  <link rel="canonical" href="https://hzjoyous.github.io/2018/10/27/php/php_001_安装/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>PHP[001]:INSTALL | biubiubiu~</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">biubiubiu~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">快乐~</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hzjoyous.github.io/2018/10/27/php/php_001_%E5%AE%89%E8%A3%85/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hzjoyous"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="biubiubiu~"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PHP[001]:INSTALL
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-27 09:48:33" itemprop="dateCreated datePublished" datetime="2018-10-27T09:48:33+08:00">2018-10-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-06 20:04:41" itemprop="dateModified" datetime="2019-05-06T20:04:41+08:00">2019-05-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>ubuntu</p>
+<p>ubuntu 中软件的卸载方法：</p>
+<p>1.apt方式安装：(相应的文件夹有相关的软件，先进入到软件的文件夹)<br>  普通安装： sudo apt-get install 软件名<br>  修复安装： sudo apt-get -f install 软件名<br>  重新安装： sudo apt-get –rreinstall install 软件名<br>　(一般是 .deb　格式)<br>2.dpkg 方式：<br>  1.普通安装：sudo dpkg -i package_name.deb<br>=====================================<br>如果软件的格式为 .rpm 格式包时，则<br>1.先安装　alien 和　fakeroot 这两个工具，<br> sudo apt-get install alien fakeroot<br>alien 把　.rpm 为　.deb 格式的文件</p>
+<ol>
+<li><p>将　.rpm 格式的文件转为 同文件名的　.deb<br>fakeroot alien xx.rpm<br>这样就可以按上面的方法安装了</p>
+<p>1.apt 方式：<br>a. 移除式卸载： apt-get remove 软件名<br>b. 清除式卸载： apt-get –purge remove 软件名 (同时清除配置)<br>c. 清除式卸载： apt-get –purge 软件名  (同时清除配置)</p>
+<p>2.dpkg 方式：<br>a. 移除式卸载：sudo dpkg dpkg_name<br>b. 清除式卸载：sudo -P dpkg_name</p>
+</li>
+</ol>
+<p>查看已经安装的软件名称：</p>
+<p>dpkg -l</p>
+<p>查找软件库中的软件<br>apt-cache search 正则表达式<br>或者<br>aptitude search 软件包（部分）<br>可以查看相关软件的名称　标志 i　表示已经安装</p>
+<p>apt-cache search php7</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">.&#x2F;configure \</span><br><span class="line">--prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;php73 \</span><br><span class="line">--exec-prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;php73 \</span><br><span class="line">--bindir&#x3D;&#x2F;usr&#x2F;local&#x2F;php73&#x2F;bin \</span><br><span class="line">--sbindir&#x3D;&#x2F;usr&#x2F;local&#x2F;php73&#x2F;sbin \</span><br><span class="line">--includedir&#x3D;&#x2F;usr&#x2F;local&#x2F;php73&#x2F;include \</span><br><span class="line">--libdir&#x3D;&#x2F;usr&#x2F;local&#x2F;php73&#x2F;lib&#x2F;php \</span><br><span class="line">--mandir&#x3D;&#x2F;usr&#x2F;local&#x2F;php73&#x2F;php&#x2F;man \</span><br><span class="line">--with-config-file-path&#x3D;&#x2F;usr&#x2F;local&#x2F;php73&#x2F;etc \</span><br><span class="line">--with-openssl \</span><br><span class="line">--enable-mbstring \</span><br><span class="line">--enable-fpm</span><br><span class="line"></span><br><span class="line">sudo make &amp;&amp; sudo make install</span><br></pre></td></tr></table></figure>
+
+<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># php7.1</span></span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/php71 --with-config-file-path=/usr/<span class="built_in">local</span>/php71/etc --with-config-file-scan-dir=/usr/<span class="built_in">local</span>/php71/conf.d --<span class="built_in">enable</span>-fpm --with-fpm-user=www --with-fpm-group=www --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-iconv-dir --with-freetype-dir=/usr/<span class="built_in">local</span>/freetype --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir=/usr --<span class="built_in">enable</span>-xml --<span class="built_in">disable</span>-rpath --<span class="built_in">enable</span>-bcmath --<span class="built_in">enable</span>-shmop --<span class="built_in">enable</span>-sysvsem --<span class="built_in">enable</span>-inline-optimization --with-curl --<span class="built_in">enable</span>-mbregex --<span class="built_in">enable</span>-mbstring --with-mcrypt --<span class="built_in">enable</span>-ftp --with-gd --<span class="built_in">enable</span>-gd-native-ttf --with-openssl --with-mhash --<span class="built_in">enable</span>-pcntl --<span class="built_in">enable</span>-sockets --with-xmlrpc --<span class="built_in">enable</span>-zip --<span class="built_in">enable</span>-soap --with-gettext --<span class="built_in">disable</span>-fileinfo --<span class="built_in">enable</span>-intl --with-xsl --<span class="built_in">enable</span>-maintainer-zts </span><br><span class="line"> ./configure --with-php-config=/usr/<span class="built_in">local</span>/php71/bin/php-config --with-readline</span><br><span class="line"></span><br><span class="line"><span class="comment"># php7废弃的扩展</span></span><br><span class="line"><span class="comment"># --with-mysql=mysqlnd</span></span><br><span class="line"></span><br><span class="line">sudo make &amp;&amp; sudo make install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Warning! a PEAR user config file already exists from a previous PEAR installation at &#39;&#x2F;home&#x2F;hanzhijie&#x2F;.pearrc&#39;. You may probably want to remove it.</span><br><span class="line">Wrote PEAR system config file at: &#x2F;usr&#x2F;local&#x2F;php71&#x2F;etc&#x2F;pear.conf</span><br><span class="line">You may want to add: &#x2F;usr&#x2F;local&#x2F;php71&#x2F;lib&#x2F;php to your php.ini include_path</span><br><span class="line">&#x2F;mnt&#x2F;c&#x2F;Users&#x2F;hzj&#x2F;Desktop&#x2F;boom&#x2F;tmp&#x2F;php-7.1.26&#x2F;build&#x2F;shtool install -c ext&#x2F;phar&#x2F;phar.phar &#x2F;usr&#x2F;local&#x2F;php71&#x2F;bin</span><br><span class="line">ln -s -f phar.phar &#x2F;usr&#x2F;local&#x2F;php71&#x2F;bin&#x2F;phar</span><br><span class="line">Installing PDO headers:           &#x2F;usr&#x2F;local&#x2F;php71&#x2F;include&#x2F;php&#x2F;ext&#x2F;pdo&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h2 id="php7-3"><a href="#php7-3" class="headerlink" title="php7.3"></a>php7.3</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/php73 --with-config-file-path=/usr/<span class="built_in">local</span>/php73/etc --with-config-file-scan-dir=/usr/<span class="built_in">local</span>/php73/conf.d --<span class="built_in">enable</span>-fpm --with-fpm-user=www --with-fpm-group=www --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-iconv-dir --with-freetype-dir=/usr/<span class="built_in">local</span>/freetype --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir=/usr --<span class="built_in">enable</span>-xml --<span class="built_in">disable</span>-rpath --<span class="built_in">enable</span>-bcmath --<span class="built_in">enable</span>-shmop --<span class="built_in">enable</span>-sysvsem --<span class="built_in">enable</span>-inline-optimization --with-curl --<span class="built_in">enable</span>-mbregex --<span class="built_in">enable</span>-mbstring --<span class="built_in">enable</span>-ftp --with-gd  --with-openssl --with-mhash --<span class="built_in">enable</span>-pcntl --<span class="built_in">enable</span>-sockets --with-xmlrpc --<span class="built_in">enable</span>-zip --<span class="built_in">enable</span>-soap --with-gettext --<span class="built_in">disable</span>-fileinfo --<span class="built_in">enable</span>-intl --with-xsl --with-kerberos --<span class="built_in">enable</span>-sysvshm --<span class="built_in">enable</span>-opcache --<span class="built_in">enable</span>-libxml --with-bz2 --with-pear --with-pdo-sqlite --with-pcre-regex --with-libdir=lib64 --with-kerberos --<span class="built_in">enable</span>-maintainer-zts  </span><br><span class="line">./configure --with-php-config=/usr/<span class="built_in">local</span>/php73/bin/php-config --with-readline</span><br><span class="line"><span class="comment"># php7.2废弃的扩展</span></span><br><span class="line"><span class="comment"># --with-mcrypt --enable-gd-native-ttf</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Warning! a PEAR user config file already exists from a previous PEAR installation at <span class="string">'/home/hanzhijie/.pearrc'</span>. You may probably want to remove it.</span><br><span class="line">Wrote PEAR system config file at: /usr/<span class="built_in">local</span>/php73/etc/pear.conf</span><br><span class="line">You may want to add: /usr/<span class="built_in">local</span>/php73/lib/php to your php.ini include_path</span><br><span class="line">/mnt/c/Users/hzj/Desktop/boom/tmp/php-7.3.2/build/shtool install -c ext/phar/phar.phar /usr/<span class="built_in">local</span>/php73/bin</span><br><span class="line">ln -s -f phar.phar /usr/<span class="built_in">local</span>/php73/bin/phar</span><br><span class="line">Installing PDO headers:           /usr/<span class="built_in">local</span>/php73/include/php/ext/pdo/</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="pthreads-安装"><a href="#pthreads-安装" class="headerlink" title="pthreads 安装"></a>pthreads 安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">----------------------------------------------------------------------</span><br><span class="line">Libraries have been installed in:</span><br><span class="line">   &#x2F;mnt&#x2F;c&#x2F;Users&#x2F;hzj&#x2F;Desktop&#x2F;boom&#x2F;tmp&#x2F;pthreads-master&#x2F;modules</span><br><span class="line"></span><br><span class="line">If you ever happen to want to link against installed libraries</span><br><span class="line">in a given directory, LIBDIR, you must either use libtool, and</span><br><span class="line">specify the full pathname of the library, or use the &#96;-LLIBDIR&#39;</span><br><span class="line">flag during linking and do at least one of the following:</span><br><span class="line">   - add LIBDIR to the &#96;LD_LIBRARY_PATH&#39; environment variable</span><br><span class="line">     during execution</span><br><span class="line">   - add LIBDIR to the &#96;LD_RUN_PATH&#39; environment variable</span><br><span class="line">     during linking</span><br><span class="line">   - use the &#96;-Wl,--rpath -Wl,LIBDIR&#39; linker flag</span><br><span class="line">   - have your system administrator add LIBDIR to &#96;&#x2F;etc&#x2F;ld.so.conf&#39;</span><br><span class="line"></span><br><span class="line">See any operating system documentation about shared libraries for</span><br><span class="line">more information, such as the ld(1) and ld.so(8) manual pages.</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Build complete.</span><br><span class="line">Don&#39;t forget to run &#39;make test&#39;.</span><br><span class="line"></span><br><span class="line">Installing shared extensions:     &#x2F;usr&#x2F;local&#x2F;php73&#x2F;lib&#x2F;php&#x2F;extensions&#x2F;no-debug-zts-20180731&#x2F;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/27/php/php_001_composer/" rel="next" title="PHP[001]:Composer">
+                <i class="fa fa-chevron-left"></i> PHP[001]:Composer
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/27/php/php_002_Standard/" rel="prev" title="PHP[002]:Standard">
+                PHP[002]:Standard <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+  <style type="text/css">
+        @charset "utf-8";
+
+        #commentsProvidedHzj {
+            padding: 10px;
+            border-top: 2px solid #cccccc;
+            border-bottom: 2px solid #cccccc;
+            font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        #commentsProvidedHzj .avatar {
+            width: 10%;
+            float: left;
+            padding-top: 7px;
+        }
+
+        #commentsProvidedHzj .comment-info {
+            width: 85%;
+            float: left;
+            line-height: 1em;
+            margin-left: 10px;
+        }
+
+        #commentsProvidedHzj .comment-info .nickname {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.5em;
+        }
+
+        #commentsProvidedHzj .comment-info .time {
+            font-size: 13px;
+            color: #999999;
+        }
+
+        #commentsProvidedHzj .comment-info .content {
+            border-top: 2px dotted #cccccc;
+            padding-top: 5px;
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.5em;
+            width: auto;
+        }
+
+        #commentsProvidedHzj .comment-info a.reply {
+            display: block;
+            float: right;
+            font-size: 14px;
+            color: #999999;
+            cursor: pointer;
+        }
+
+        #commentsProvidedHzj input,
+        #commentsProvidedHzj textarea,
+        #commentsProvidedHzj button {
+            border: none;
+            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+            border-radius: 2px;
+        }
+
+        #commentsProvidedHzj input {
+            width: 28%;
+            margin: 0;
+            padding: 5px;
+            margin-right: 2%;
+            height: 32px;
+            font-size: 18px;
+            line-height: 32px;
+        }
+
+        @media only screen and (max-width: 720px) {
+
+            #commentsProvidedHzj input,
+            #commentsProvidedHzj textarea {
+                border: 1px solid #cccccc;
+            }
+
+            #commentsProvidedHzj input {
+                width: 27%;
+            }
+        }
+
+        @media only screen and (max-width: 400px) {
+            #commentsProvidedHzj input {
+                margin-right: 1%;
+            }
+        }
+
+        @media only screen and (max-width: 350px) {
+            #commentsProvidedHzj input {
+                margin-right: 0;
+            }
+        }
+
+        #commentsProvidedHzj textarea {
+            width: 96%;
+            font-size: 18px;
+            line-height: 24px;
+            margin-top: 10px;
+            padding: 5px;
+        }
+
+        #commentsProvidedHzj button {
+            width: 10%;
+            margin-left: 5px;
+            margin-top: 10px;
+            appearance: button;
+            cursor: pointer;
+            color: #fff;
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+            height: 32px;
+            min-width: 80px;
+        }
+    </style>
+
+    <div id="commentsProvidedHzj">
+        <div class="comment">
+          <div v-for="comment in info" class="comment">
+            <div class="avatar"><img :src="comment.avatarUri" alt="nihao avatar"></div>
+            <div class="comment-info">
+                <div class="nickname">${comment.nickname}</div>
+                <div class="time">${comment.createTime}</div>
+                <div class="content">${comment.content}</div>
+                <!--<a class="reply" herf="#submit4hzj">回复</a> -->
+            </div>
+          </div>
+        </div>
+
+        <div style="clear: both; height: 30px;"></div>
+        <div class="submit">
+            <input type="text" class="nickname" v-model="submit.nickname" placeholder="nickname（必填）">
+            <input type="text" class="email" v-model="submit.email" placeholder="email">
+            <input type="text" class="website" v-model="submit.website" placeholder="website">
+            <br>
+            <textarea name="" id="" cols="30" rows="10" class="content" v-model="submit.content"
+                placeholder="content（必填）"></textarea>
+            <button v-on:click="submitComment()">提交评论</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!--<script src="https://vuejs.org/js/vue.js"></script>-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        $app = new Vue({
+            delimiters:['${', '}'],
+            el: '#commentsProvidedHzj',
+            data: {
+                info: null,
+                submit: {
+                    'nickname': '',
+                    'email': '',
+                    'website': '',
+                    'uuid': '',
+                    'content': ''
+                },
+                baseUri: 'https://api.nonodi.com'
+            },
+            mounted() {
+                var identity = window.location.href;
+                
+                axios.get(this.baseUri + '/comments', {
+                    params: {
+                        uuid: this.submit.uuid,
+                        identity: identity
+                    }
+                }).then(response => (
+                  this.info = response.data.value.comments,
+                  this.submit.uuid = response.data.value.uuid
+                  ))
+
+            },
+            methods: {
+                submitComment: function () {
+                    axios.get(this.baseUri + '/addComment', {
+                        params: {
+                            nickname: this.submit.nickname,
+                            email: this.submit.email,
+                            website: this.submit.website,
+                            uuid: this.submit.uuid,
+                            content: this.submit.content
+                        }
+                    }).then(response => (console.log(response.data)))
+
+                    var identity = window.location.href;
+                    axios.get(this.baseUri + '/comments', {
+                        params: {
+                            uuid: this.submit.uuid,
+                            identity: identity
+                        }
+                    }).then(response => (
+                        this.info = response.data.value.comments,
+                        this.submit.uuid = response.data.value.uuid
+                    ))
+                        .catch(error => console.log(error))
+                }
+            }
+        });
+    </script>
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="hzjoyous"/>
+            
+              <p class="site-author-name" itemprop="name">hzjoyous</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/%20%7C%7C%20archive">
+                
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/hzjoyous" title="GitHub &rarr; https://github.com/hzjoyous" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/p/1005057311637589" title="微博 &rarr; https://weibo.com/p/1005057311637589" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/HhhhhhHzj" title="Twitter &rarr; https://twitter.com/HhhhhhHzj" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hzj991.github.io/" title="https://hzj991.github.io/" rel="noopener" target="_blank">还木有</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_15539917" title="https://blog.csdn.net/qq_15539917" rel="noopener" target="_blank">郭德旭</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#编译"><span class="nav-number">1.</span> <span class="nav-text">编译</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#php7-3"><span class="nav-number">1.1.</span> <span class="nav-text">php7.3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pthreads-安装"><span class="nav-number">1.2.</span> <span class="nav-text">pthreads 安装</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 1970 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hzjoyous</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.1.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":true},"log":false});</script></body>
+</html>

@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="起初，“面向对象”是专指在程序设计中采用封装、继承、多态等设计方法看下面一段php代码 12345678910111213141516&lt;?phpfunction eat()&amp;#123;    echo &#39;eat&#39;;&amp;#125;function eatFood()&amp;#123;    eat();&amp;#125;function eatFood2()&amp;#123;    eat();    eat()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象随笔">
+<meta property="og:url" content="https:&#x2F;&#x2F;hzjoyous.github.io&#x2F;2019&#x2F;06&#x2F;28&#x2F;other&#x2F;%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%9D%82%E8%B0%88&#x2F;index.html">
+<meta property="og:site_name" content="biubiubiu~">
+<meta property="og:description" content="起初，“面向对象”是专指在程序设计中采用封装、继承、多态等设计方法看下面一段php代码 12345678910111213141516&lt;?phpfunction eat()&amp;#123;    echo &#39;eat&#39;;&amp;#125;function eatFood()&amp;#123;    eat();&amp;#125;function eatFood2()&amp;#123;    eat();    eat()">
+<meta property="article:published_time" content="2019-06-28T12:25:00.000Z">
+<meta property="article:modified_time" content="2019-06-28T13:00:03.038Z">
+<meta property="article:author" content="hzjoyous">
+<meta property="article:tag" content="c">
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+  <link rel="canonical" href="https://hzjoyous.github.io/2019/06/28/other/面向对象杂谈/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>面向对象随笔 | biubiubiu~</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">biubiubiu~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">快乐~</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hzjoyous.github.io/2019/06/28/other/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%9D%82%E8%B0%88/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hzjoyous"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="biubiubiu~"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">面向对象随笔
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-28 20:25:00 / 修改时间：21:00:03" itemprop="dateCreated datePublished" datetime="2019-06-28T20:25:00+08:00">2019-06-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="起初，“面向对象”是专指在程序设计中采用封装、继承、多态等设计方法"><a href="#起初，“面向对象”是专指在程序设计中采用封装、继承、多态等设计方法" class="headerlink" title="起初，“面向对象”是专指在程序设计中采用封装、继承、多态等设计方法"></a>起初，“面向对象”是专指在程序设计中采用封装、继承、多态等设计方法</h1><p>看下面一段php代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eat</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'eat'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eatFood</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    eat();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eatFood2</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    eat();</span><br><span class="line">    eat();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>是不是和面向对象的继承封装多态差不多？虽然代码看着有点丑陋</p>
+<p>再举例一个 oop 里面的一个设计模式<code>观察者</code>,php中有<code>declare(ticks=1);</code>这样一种用法，（这个写法的孪生兄弟pcntl_signal_dispatch()不是这次的重点）,它表示每执行多少语句去执行一下<code>register_tick_function</code>注册的方法或检测<code>pcntl_signal</code>信号量，是不是很适合用来实现观察者，但观察者的实现多大都是主动通知更改的时候触发了observer，而非被监听者观察到状态变化，因为从实现上来说，每执行一句就要观察一下状态是不是有点费劲呀，之后就演变成了发布订阅，因为服务端的业务代码大多数时候并没有实现真正的观察者。但是真正意义的观察者也是存在的，从实现角度上来说我们常用的守护进程大多都可以理解为观察者的实现，起进程，监控进程，发现挂掉就重启。</p>
+<h1 id="圆形的太阳和圆形的眼睛有什么关系，游戏超级玛丽奥中山和云的其实是颜色不一样的图形他们又是什么关系"><a href="#圆形的太阳和圆形的眼睛有什么关系，游戏超级玛丽奥中山和云的其实是颜色不一样的图形他们又是什么关系" class="headerlink" title="圆形的太阳和圆形的眼睛有什么关系，游戏超级玛丽奥中山和云的其实是颜色不一样的图形他们又是什么关系"></a>圆形的太阳和圆形的眼睛有什么关系，游戏超级玛丽奥中山和云的其实是颜色不一样的图形他们又是什么关系</h1><p>许多人可能会说圆形是太阳的一个属性，山的型状和云的型状也是他们的属性，那太阳和眼睛存在关系码？云和山又有什么关系呢？很显然在这种地方组合的表现要更加明显。</p>
+<p>所以我个人认为面向对象并非一个完美的理论，而实一个阶段性的由开发人员长期开发得出来的经验总结</p>
+<h1 id="面向对象的缺点不包括-‘运行速度慢’"><a href="#面向对象的缺点不包括-‘运行速度慢’" class="headerlink" title="面向对象的缺点不包括 ‘运行速度慢’"></a>面向对象的缺点不包括 ‘运行速度慢’</h1><p>网上有人说面向对象的缺点里面包括了<code>运行速度慢</code>，这个观点简直就是放屁，因为面向对象的逻辑可以等价的转换为非面向对象的写法，所以无论是开发自己转换也好，还是语言底层自己转换也好，相同逻辑下效率是一样的，（个人反对因为现在计算机算力高，所以可以忽略某些问题，但面向对象本身是没有性能问题，即使有那也是编译器或解析器处理的问题，或编写语法转换器，所以这个缺点是不存在的，面向对象的缺点应该更多的观察它设计上的缺陷）。</p>
+<h1 id="设计非教条"><a href="#设计非教条" class="headerlink" title="设计非教条"></a>设计非教条</h1><p>如果不能优雅的实现设计模式，那么或者时机不到（没有合适的api，或者没有合适的库的支持（例如反射类推进了ioc,php词法分析推进了php编程上使用注解）），要么可能就是过于追求本本主义，走了弯路</p>
+<h1 id="人挪活，树挪死"><a href="#人挪活，树挪死" class="headerlink" title="人挪活，树挪死"></a>人挪活，树挪死</h1>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c/" rel="tag"># c</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/28/other/%E9%9A%8F%E7%AC%94/" rel="next" title="从数据绑定看现代库的本质（随笔）">
+                <i class="fa fa-chevron-left"></i> 从数据绑定看现代库的本质（随笔）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/28/other/webpack%E6%9C%89%E6%84%9F/" rel="prev" title="webpack 有感">
+                webpack 有感 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+  <style type="text/css">
+        @charset "utf-8";
+
+        #commentsProvidedHzj {
+            padding: 10px;
+            border-top: 2px solid #cccccc;
+            border-bottom: 2px solid #cccccc;
+            font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        #commentsProvidedHzj .avatar {
+            width: 10%;
+            float: left;
+            padding-top: 7px;
+        }
+
+        #commentsProvidedHzj .comment-info {
+            width: 85%;
+            float: left;
+            line-height: 1em;
+            margin-left: 10px;
+        }
+
+        #commentsProvidedHzj .comment-info .nickname {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.5em;
+        }
+
+        #commentsProvidedHzj .comment-info .time {
+            font-size: 13px;
+            color: #999999;
+        }
+
+        #commentsProvidedHzj .comment-info .content {
+            border-top: 2px dotted #cccccc;
+            padding-top: 5px;
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.5em;
+            width: auto;
+        }
+
+        #commentsProvidedHzj .comment-info a.reply {
+            display: block;
+            float: right;
+            font-size: 14px;
+            color: #999999;
+            cursor: pointer;
+        }
+
+        #commentsProvidedHzj input,
+        #commentsProvidedHzj textarea,
+        #commentsProvidedHzj button {
+            border: none;
+            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+            border-radius: 2px;
+        }
+
+        #commentsProvidedHzj input {
+            width: 28%;
+            margin: 0;
+            padding: 5px;
+            margin-right: 2%;
+            height: 32px;
+            font-size: 18px;
+            line-height: 32px;
+        }
+
+        @media only screen and (max-width: 720px) {
+
+            #commentsProvidedHzj input,
+            #commentsProvidedHzj textarea {
+                border: 1px solid #cccccc;
+            }
+
+            #commentsProvidedHzj input {
+                width: 27%;
+            }
+        }
+
+        @media only screen and (max-width: 400px) {
+            #commentsProvidedHzj input {
+                margin-right: 1%;
+            }
+        }
+
+        @media only screen and (max-width: 350px) {
+            #commentsProvidedHzj input {
+                margin-right: 0;
+            }
+        }
+
+        #commentsProvidedHzj textarea {
+            width: 96%;
+            font-size: 18px;
+            line-height: 24px;
+            margin-top: 10px;
+            padding: 5px;
+        }
+
+        #commentsProvidedHzj button {
+            width: 10%;
+            margin-left: 5px;
+            margin-top: 10px;
+            appearance: button;
+            cursor: pointer;
+            color: #fff;
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+            height: 32px;
+            min-width: 80px;
+        }
+    </style>
+
+    <div id="commentsProvidedHzj">
+        <div class="comment">
+          <div v-for="comment in info" class="comment">
+            <div class="avatar"><img :src="comment.avatarUri" alt="nihao avatar"></div>
+            <div class="comment-info">
+                <div class="nickname">${comment.nickname}</div>
+                <div class="time">${comment.createTime}</div>
+                <div class="content">${comment.content}</div>
+                <!--<a class="reply" herf="#submit4hzj">回复</a> -->
+            </div>
+          </div>
+        </div>
+
+        <div style="clear: both; height: 30px;"></div>
+        <div class="submit">
+            <input type="text" class="nickname" v-model="submit.nickname" placeholder="nickname（必填）">
+            <input type="text" class="email" v-model="submit.email" placeholder="email">
+            <input type="text" class="website" v-model="submit.website" placeholder="website">
+            <br>
+            <textarea name="" id="" cols="30" rows="10" class="content" v-model="submit.content"
+                placeholder="content（必填）"></textarea>
+            <button v-on:click="submitComment()">提交评论</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!--<script src="https://vuejs.org/js/vue.js"></script>-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        $app = new Vue({
+            delimiters:['${', '}'],
+            el: '#commentsProvidedHzj',
+            data: {
+                info: null,
+                submit: {
+                    'nickname': '',
+                    'email': '',
+                    'website': '',
+                    'uuid': '',
+                    'content': ''
+                },
+                baseUri: 'https://api.nonodi.com'
+            },
+            mounted() {
+                var identity = window.location.href;
+                
+                axios.get(this.baseUri + '/comments', {
+                    params: {
+                        uuid: this.submit.uuid,
+                        identity: identity
+                    }
+                }).then(response => (
+                  this.info = response.data.value.comments,
+                  this.submit.uuid = response.data.value.uuid
+                  ))
+
+            },
+            methods: {
+                submitComment: function () {
+                    axios.get(this.baseUri + '/addComment', {
+                        params: {
+                            nickname: this.submit.nickname,
+                            email: this.submit.email,
+                            website: this.submit.website,
+                            uuid: this.submit.uuid,
+                            content: this.submit.content
+                        }
+                    }).then(response => (console.log(response.data)))
+
+                    var identity = window.location.href;
+                    axios.get(this.baseUri + '/comments', {
+                        params: {
+                            uuid: this.submit.uuid,
+                            identity: identity
+                        }
+                    }).then(response => (
+                        this.info = response.data.value.comments,
+                        this.submit.uuid = response.data.value.uuid
+                    ))
+                        .catch(error => console.log(error))
+                }
+            }
+        });
+    </script>
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="hzjoyous"/>
+            
+              <p class="site-author-name" itemprop="name">hzjoyous</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/%20%7C%7C%20archive">
+                
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/hzjoyous" title="GitHub &rarr; https://github.com/hzjoyous" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/p/1005057311637589" title="微博 &rarr; https://weibo.com/p/1005057311637589" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/HhhhhhHzj" title="Twitter &rarr; https://twitter.com/HhhhhhHzj" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hzj991.github.io/" title="https://hzj991.github.io/" rel="noopener" target="_blank">还木有</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_15539917" title="https://blog.csdn.net/qq_15539917" rel="noopener" target="_blank">郭德旭</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#起初，“面向对象”是专指在程序设计中采用封装、继承、多态等设计方法"><span class="nav-number">1.</span> <span class="nav-text">起初，“面向对象”是专指在程序设计中采用封装、继承、多态等设计方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#圆形的太阳和圆形的眼睛有什么关系，游戏超级玛丽奥中山和云的其实是颜色不一样的图形他们又是什么关系"><span class="nav-number">2.</span> <span class="nav-text">圆形的太阳和圆形的眼睛有什么关系，游戏超级玛丽奥中山和云的其实是颜色不一样的图形他们又是什么关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象的缺点不包括-‘运行速度慢’"><span class="nav-number">3.</span> <span class="nav-text">面向对象的缺点不包括 ‘运行速度慢’</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设计非教条"><span class="nav-number">4.</span> <span class="nav-text">设计非教条</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#人挪活，树挪死"><span class="nav-number">5.</span> <span class="nav-text">人挪活，树挪死</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 1970 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hzjoyous</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.1.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":true},"log":false});</script></body>
+</html>

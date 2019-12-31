@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="my_win 关于 windows 独占的工具使用  ## 12# 一个控制台的调色工具 ms 官方提供https:&#x2F;&#x2F;github.com&#x2F;Microsoft&#x2F;console&#x2F;releases&#x2F;tag&#x2F;1708.14008  my_wsl123# github_page 本地配置，具体安装。。。忘了# 如果使用 kali 版本的 wsl 则安装非常省事，具体见百度alias blogrun&#x3D;&#39;b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工具箱">
+<meta property="og:url" content="https:&#x2F;&#x2F;hzjoyous.github.io&#x2F;2018&#x2F;11&#x2F;05&#x2F;other&#x2F;tool&#x2F;index.html">
+<meta property="og:site_name" content="biubiubiu~">
+<meta property="og:description" content="my_win 关于 windows 独占的工具使用  ## 12# 一个控制台的调色工具 ms 官方提供https:&#x2F;&#x2F;github.com&#x2F;Microsoft&#x2F;console&#x2F;releases&#x2F;tag&#x2F;1708.14008  my_wsl123# github_page 本地配置，具体安装。。。忘了# 如果使用 kali 版本的 wsl 则安装非常省事，具体见百度alias blogrun&#x3D;&#39;b">
+<meta property="article:published_time" content="2018-11-05T07:25:38.000Z">
+<meta property="article:modified_time" content="2019-07-01T16:59:29.482Z">
+<meta property="article:author" content="hzjoyous">
+<meta property="article:tag" content="tool">
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+  <link rel="canonical" href="https://hzjoyous.github.io/2018/11/05/other/tool/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>工具箱 | biubiubiu~</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">biubiubiu~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">快乐~</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hzjoyous.github.io/2018/11/05/other/tool/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hzjoyous"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="biubiubiu~"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">工具箱
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-05 15:25:38" itemprop="dateCreated datePublished" datetime="2018-11-05T15:25:38+08:00">2018-11-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-02 00:59:29" itemprop="dateModified" datetime="2019-07-02T00:59:29+08:00">2019-07-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tool/" itemprop="url" rel="index"><span itemprop="name">tool</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="my-win"><a href="#my-win" class="headerlink" title="my_win"></a>my_win</h1><blockquote>
+<p>关于 windows 独占的工具使用</p>
+</blockquote>
+<p>##</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 一个控制台的调色工具 ms 官方提供</span><br><span class="line"><span class="function">https://<span class="title">github.com</span>/<span class="title">Microsoft</span>/<span class="title">console</span>/<span class="title">releases</span>/<span class="title">tag</span>/1708.14008</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="my-wsl"><a href="#my-wsl" class="headerlink" title="my_wsl"></a>my_wsl</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># github_page 本地配置，具体安装。。。忘了</span></span><br><span class="line"><span class="comment"># 如果使用 kali 版本的 wsl 则安装非常省事，具体见百度</span></span><br><span class="line"><span class="built_in">alias</span> blogrun=<span class="string">'bundle exec jekyll serve'</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><h2 id="command"><a href="#command" class="headerlink" title="command"></a>command</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#匹配文件后缀为 .jpg 的文件并且删除</span></span><br><span class="line">find ./ -name <span class="string">'*.jpg'</span>  | xargs rm </span><br><span class="line"></span><br><span class="line"><span class="comment"># svn 根据提交人过滤 / sed 命令的使用</span></span><br><span class="line">svn <span class="built_in">log</span> --<span class="built_in">limit</span> 10 -v | sed -n <span class="string">'/username/,/-----$/ p'</span> </span><br><span class="line"></span><br><span class="line"><span class="comment"># 多彩日志</span></span><br><span class="line">tail -f test_stub.log |  perl -pe <span class="string">'s/(500)|(200)|(404)|(error)/\e[1;31m$1\e\e[1;32m$2\e\e[1;36m$3\e\e[1;31m$4\e[0m/g'</span>  </span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[30m 黑色字 \033[0m"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[31m 红色字 \033[0m"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[32m 绿色字 \033[0m"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[33m 黄色字 \033[0m"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[34m 蓝色字 \033[0m"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[35m 紫色字 \033[0m"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[36m 天蓝字 \033[0m"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[37m 白色字 \033[0m"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[40;37m 黑底白字 \033[0m"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[41;37m 红底白字 \033[0m"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[42;37m 绿底白字 \033[0m"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[43;37m 黄底白字 \033[0m"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[44;37m 蓝底白字 \033[0m"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[45;37m 紫底白字 \033[0m"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[46;37m 天蓝底白字 \033[0m"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[47;30m 白底黑字 \033[0m"</span></span><br><span class="line"></span><br><span class="line">ps -ef|grep <span class="string">"zhaoyinfan/supervisor"</span> | grep -v grep | awk <span class="string">'&#123;print $1&#125;'</span> | xargs <span class="built_in">kill</span> -9</span><br><span class="line"></span><br><span class="line"><span class="comment">#ps -ef|grep "zhaoyinfan/supervisor" | grep -v grep | awk '&#123;print $2 " " $9" "$10" "$11&#125;' &gt; resupervisord &amp;&amp; cat  resupervisord | awk '&#123;print $1&#125;'  | xargs kill -9  &amp;&amp;  cat  resupervisord | awk '&#123;print $2" " $3" " $4&#125;' &gt; resupervisord &amp;&amp; sh resupervisord &amp;&amp; rm resupervisord</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">git config user.name <span class="string">'github用户名'</span>  </span><br><span class="line">git config user.email <span class="string">'邮箱'</span>  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化</span></span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">"first commit"</span></span><br><span class="line">git remote add origin git@github.com:hzj991/hexo.git</span><br><span class="line">git push -u origin master</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换远程分支</span></span><br><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:hzj991/hexo-next.git</span><br><span class="line">git push --<span class="built_in">set</span>-upstream origin master</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 vimdiff 进行 git diff</span></span><br><span class="line">git config --global diff.tool vimdiff</span><br><span class="line">git config --global difftool.prompt <span class="literal">false</span></span><br><span class="line">git config --global alias.d difftool</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清除提交记录缓存</span></span><br><span class="line">git rm --cached application.log</span><br><span class="line">git rm -r --cached .  </span><br><span class="line">git add .gitignore  </span><br><span class="line">git commit -m <span class="string">"update .gitignore"</span>  </span><br><span class="line">git remote add origin git@23123.com</span><br><span class="line">git remote prune origin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果是linux和windows混合开发，很容易会遇到行尾换行符的问题，windows下默认是\r\n，linux下是\n。如果没做处理，git提交时很有可能产生问题，解决办法为设置git config的 core.autocrlf，</span></span><br><span class="line">git config --global core.autocrlf <span class="literal">true</span> <span class="comment"># 表示自动更换crlf，windows下如果checkout是\n，则自动换为\r\n，在提交时在自动换回\n</span></span><br><span class="line">git config --global core.autocrlf input <span class="comment"># 自动把\r\n换为\n</span></span><br><span class="line">git config --global core.autocrlf <span class="literal">false</span> <span class="comment"># 就是不作处理</span></span><br><span class="line"><span class="comment"># 如果已经产生了\r\n，merge时产生问题，可以设置</span></span><br><span class="line">git config merge.renormalize <span class="literal">true</span> <span class="comment"># merge时忽略行尾对比</span></span><br><span class="line">如果只需要执行一次merge可以是用命令</span><br><span class="line">git merge -s recursive -X ignore-space-at-eol origin/master</span><br><span class="line"><span class="comment"># 还可以设置crlf安全检查</span></span><br><span class="line">git config --global core.safecrlf <span class="literal">true</span> <span class="comment"># 禁止提交混合\n和\r\n的文件</span></span><br><span class="line">git config --global core.safecrlf <span class="literal">false</span> <span class="comment"># 允许提交</span></span><br><span class="line">git config --global core.safecrlf warn <span class="comment"># 提交时产生警告</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果经常产生文件属性变更的情况，可以设置</span></span><br><span class="line">git config --global core.filemode <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+
+<p>扩展:</p>
+<ul>
+<li><a href="http://blog.jobbole.com/87700/" target="_blank" rel="noopener">几乎所有的 git 撤销</a></li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/users/hzj/tmpgit/web/                                                                                                                                                                                </span><br><span class="line">git checkout master                                                                                                                                                                                                 </span><br><span class="line">oldTimetime=$(date -d <span class="string">"3 days ago"</span> +%Y_%m_%d_%H)                                                                                                                                                                    </span><br><span class="line">git branch -d hotfix/hzj/<span class="variable">$&#123;oldTimetime&#125;</span>                                                                                                                                                                       </span><br><span class="line">git push origin --delete hotfix/hzj/<span class="variable">$&#123;oldTimetime&#125;</span>                                                                                                                                                            </span><br><span class="line">git pull                                                                                                                                                                                                            </span><br><span class="line">time=$(date <span class="string">"+%Y_%m_%d_%H"</span>)                                                                                                                                                                                         </span><br><span class="line">branchName=hotfix/hzj/<span class="variable">$&#123;time&#125;</span>                                                                                                                                                                                 </span><br><span class="line">git checkout -b <span class="variable">$&#123;branchName&#125;</span>                                                                                                                                                                                       </span><br><span class="line">git pull                                                                                                                                                                                                            </span><br><span class="line">git push origin <span class="variable">$&#123;branchName&#125;</span>:<span class="variable">$&#123;branchName&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="lnmp"><a href="#lnmp" class="headerlink" title="lnmp"></a>lnmp</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">php -S 0.0.0.0:8080 index.php</span><br><span class="line"></span><br><span class="line">sudo service nginx reload</span><br><span class="line">sudo service nginx restart</span><br><span class="line"></span><br><span class="line">sudo service php-fpm reload</span><br><span class="line">sudo service php-fpm restart</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysqldump  -h 10.0.1.90 -u username  -p  -P 3306 --no-data  --skip-lock-table --databases databaseName &gt; dump.sql</span><br><span class="line">mysql -h 10.0.2.72 -u username -p -P 3306 bookorder &lt; dump.sql </span><br><span class="line"></span><br><span class="line">*</span><br><span class="line">ssh-keygen -t rsa </span><br><span class="line">cat id_rsa.pub &gt;&gt; authorized_keys</span><br></pre></td></tr></table></figure>
+
+<h1 id="linux-1"><a href="#linux-1" class="headerlink" title="linux"></a>linux</h1><p>添加用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd -m getianmeng</span><br><span class="line">passwd getianmeng W4v1iQt*****************</span><br></pre></td></tr></table></figure>
+<p> 添加yum的root执行权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#vim sudoers</span><br><span class="line">cd &#x2F;etc&#x2F;sudoers.d</span><br></pre></td></tr></table></figure>
+<p><code>getianmeng ALL=(root) /usr/bin/yum</code></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tool/" rel="tag"># tool</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/other/JekyllToHexo/" rel="next" title="JekyllToHexo">
+                <i class="fa fa-chevron-left"></i> JekyllToHexo
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/18/blog/Just/" rel="prev" title="你的一阳指">
+                你的一阳指 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+  <style type="text/css">
+        @charset "utf-8";
+
+        #commentsProvidedHzj {
+            padding: 10px;
+            border-top: 2px solid #cccccc;
+            border-bottom: 2px solid #cccccc;
+            font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        #commentsProvidedHzj .avatar {
+            width: 10%;
+            float: left;
+            padding-top: 7px;
+        }
+
+        #commentsProvidedHzj .comment-info {
+            width: 85%;
+            float: left;
+            line-height: 1em;
+            margin-left: 10px;
+        }
+
+        #commentsProvidedHzj .comment-info .nickname {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.5em;
+        }
+
+        #commentsProvidedHzj .comment-info .time {
+            font-size: 13px;
+            color: #999999;
+        }
+
+        #commentsProvidedHzj .comment-info .content {
+            border-top: 2px dotted #cccccc;
+            padding-top: 5px;
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.5em;
+            width: auto;
+        }
+
+        #commentsProvidedHzj .comment-info a.reply {
+            display: block;
+            float: right;
+            font-size: 14px;
+            color: #999999;
+            cursor: pointer;
+        }
+
+        #commentsProvidedHzj input,
+        #commentsProvidedHzj textarea,
+        #commentsProvidedHzj button {
+            border: none;
+            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+            border-radius: 2px;
+        }
+
+        #commentsProvidedHzj input {
+            width: 28%;
+            margin: 0;
+            padding: 5px;
+            margin-right: 2%;
+            height: 32px;
+            font-size: 18px;
+            line-height: 32px;
+        }
+
+        @media only screen and (max-width: 720px) {
+
+            #commentsProvidedHzj input,
+            #commentsProvidedHzj textarea {
+                border: 1px solid #cccccc;
+            }
+
+            #commentsProvidedHzj input {
+                width: 27%;
+            }
+        }
+
+        @media only screen and (max-width: 400px) {
+            #commentsProvidedHzj input {
+                margin-right: 1%;
+            }
+        }
+
+        @media only screen and (max-width: 350px) {
+            #commentsProvidedHzj input {
+                margin-right: 0;
+            }
+        }
+
+        #commentsProvidedHzj textarea {
+            width: 96%;
+            font-size: 18px;
+            line-height: 24px;
+            margin-top: 10px;
+            padding: 5px;
+        }
+
+        #commentsProvidedHzj button {
+            width: 10%;
+            margin-left: 5px;
+            margin-top: 10px;
+            appearance: button;
+            cursor: pointer;
+            color: #fff;
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+            height: 32px;
+            min-width: 80px;
+        }
+    </style>
+
+    <div id="commentsProvidedHzj">
+        <div class="comment">
+          <div v-for="comment in info" class="comment">
+            <div class="avatar"><img :src="comment.avatarUri" alt="nihao avatar"></div>
+            <div class="comment-info">
+                <div class="nickname">${comment.nickname}</div>
+                <div class="time">${comment.createTime}</div>
+                <div class="content">${comment.content}</div>
+                <!--<a class="reply" herf="#submit4hzj">回复</a> -->
+            </div>
+          </div>
+        </div>
+
+        <div style="clear: both; height: 30px;"></div>
+        <div class="submit">
+            <input type="text" class="nickname" v-model="submit.nickname" placeholder="nickname（必填）">
+            <input type="text" class="email" v-model="submit.email" placeholder="email">
+            <input type="text" class="website" v-model="submit.website" placeholder="website">
+            <br>
+            <textarea name="" id="" cols="30" rows="10" class="content" v-model="submit.content"
+                placeholder="content（必填）"></textarea>
+            <button v-on:click="submitComment()">提交评论</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!--<script src="https://vuejs.org/js/vue.js"></script>-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        $app = new Vue({
+            delimiters:['${', '}'],
+            el: '#commentsProvidedHzj',
+            data: {
+                info: null,
+                submit: {
+                    'nickname': '',
+                    'email': '',
+                    'website': '',
+                    'uuid': '',
+                    'content': ''
+                },
+                baseUri: 'https://api.nonodi.com'
+            },
+            mounted() {
+                var identity = window.location.href;
+                
+                axios.get(this.baseUri + '/comments', {
+                    params: {
+                        uuid: this.submit.uuid,
+                        identity: identity
+                    }
+                }).then(response => (
+                  this.info = response.data.value.comments,
+                  this.submit.uuid = response.data.value.uuid
+                  ))
+
+            },
+            methods: {
+                submitComment: function () {
+                    axios.get(this.baseUri + '/addComment', {
+                        params: {
+                            nickname: this.submit.nickname,
+                            email: this.submit.email,
+                            website: this.submit.website,
+                            uuid: this.submit.uuid,
+                            content: this.submit.content
+                        }
+                    }).then(response => (console.log(response.data)))
+
+                    var identity = window.location.href;
+                    axios.get(this.baseUri + '/comments', {
+                        params: {
+                            uuid: this.submit.uuid,
+                            identity: identity
+                        }
+                    }).then(response => (
+                        this.info = response.data.value.comments,
+                        this.submit.uuid = response.data.value.uuid
+                    ))
+                        .catch(error => console.log(error))
+                }
+            }
+        });
+    </script>
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="hzjoyous"/>
+            
+              <p class="site-author-name" itemprop="name">hzjoyous</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/%20%7C%7C%20archive">
+                
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/hzjoyous" title="GitHub &rarr; https://github.com/hzjoyous" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/p/1005057311637589" title="微博 &rarr; https://weibo.com/p/1005057311637589" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/HhhhhhHzj" title="Twitter &rarr; https://twitter.com/HhhhhhHzj" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hzj991.github.io/" title="https://hzj991.github.io/" rel="noopener" target="_blank">还木有</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_15539917" title="https://blog.csdn.net/qq_15539917" rel="noopener" target="_blank">郭德旭</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#my-win"><span class="nav-number">1.</span> <span class="nav-text">my_win</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#my-wsl"><span class="nav-number">1.1.</span> <span class="nav-text">my_wsl</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux"><span class="nav-number">2.</span> <span class="nav-text">linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#command"><span class="nav-number">2.1.</span> <span class="nav-text">command</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git"><span class="nav-number">3.</span> <span class="nav-text">git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lnmp"><span class="nav-number">4.</span> <span class="nav-text">lnmp</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux-1"><span class="nav-number">5.</span> <span class="nav-text">linux</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 1970 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hzjoyous</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.1.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":true},"log":false});</script></body>
+</html>
